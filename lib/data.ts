@@ -17,6 +17,7 @@ export const clientLogos = [
   {
     name: "Manipal Aerosports",
     src: "https://meowcreativehaus.lovable.app/lovable-uploads/2ab5b161-6bee-476d-87ba-767c24bb9168.png",
+    scale: 1.8,
   },
   {
     name: "Resonance Security",
@@ -25,7 +26,7 @@ export const clientLogos = [
   {
     name: "Active Power",
     src: "https://meowcreativehaus.lovable.app/lovable-uploads/69925ab5-3c33-482a-9561-5eb05acbc182.png",
-    scale: 1.4,
+    scale: 1.8,
   },
   {
     name: "Asset Mantle",
