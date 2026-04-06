@@ -1,32 +1,38 @@
-# Meow Acquisition Engine
+# Meow Creative Haus 2.0
 
-Agentic lead discovery and outreach infrastructure.
+Redesigned marketing website for Meow Creative Haus -- an AI-driven revenue engineering studio. Dark editorial aesthetic with smooth scrolling, client marquee, and live Substack newsletter feed.
 
-## Overview
+## Stack
 
-Meow Acquisition Engine is an automated acquisition system designed to discover, analyze, and qualify leads using AI-driven workflows.
-
-The system focuses on:
-
-• Agentic lead discovery  
-• Automated enrichment  
-• Intelligent outreach pipelines  
-• Scalable prospect intelligence  
-
-## Tech Stack
-
+- Next.js 14 (App Router)
 - TypeScript
-- Node.js
-- AI Agents
-- Web scraping pipelines
+- Tailwind CSS 3.4
+- Framer Motion 11
+- Lenis (smooth scrolling)
+- fast-xml-parser (Substack RSS parsing)
 
-## Use Cases
+## Sections
 
-• B2B lead discovery  
-• automated prospect research  
-• outreach intelligence
+- **Navigation** -- Fixed top bar with `mix-blend-difference` effect, animated mobile menu
+- **Hero** -- Word-by-word spring animation headline, dual CTAs (Calendly + offers anchor), scroll indicator
+- **Client Marquee** -- Infinite horizontal scroll of 13 client logos (Manipal Aerosports, Resonance Security, BlackFrog, BergLabs.ai, JB & Co, etc.)
+- **Offers** -- 4 service cards: Strategic GTM, Performance Marketing, AI Workflow Automation, Account-Based Marketing
+- **Authority** -- Founder bio (Vismay Hegde) with avatar and LinkedIn CTA
+- **Substack Feed** -- Server-side RSS fetch from `impostersyndromeenjoyer.substack.com`, rendered as article cards
+- **Footer** -- Social links, email CTA, Calendly booking
 
-## Status
+## External integrations
 
-Early infrastructure build.
+- **Substack RSS**: `impostersyndromeenjoyer.substack.com/feed` (server-side, revalidated hourly)
+- **Calendly**: calendly.com/mewdiaservice/30min
+- **Lovable CDN**: Client logos hosted at meowcreativehaus.lovable.app
 
+## Setup
+
+```bash
+npm install
+npm run dev       # next dev
+npm run build     # next build
+```
+
+No environment variables needed. All config is hardcoded in `lib/data.ts`.
