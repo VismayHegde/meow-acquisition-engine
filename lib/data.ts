@@ -100,6 +100,20 @@ export const offers = [
   },
 ] as const;
 
+export const openSourceProjects = [
+  {
+    name: "Meow Operations",
+    slug: "meow-ops",
+    tagline: "Know what your AI agents actually cost.",
+    description:
+      "Local-first token analytics dashboard for Claude Code, Cursor, Aider and Codex. Wall-clock Gantt chart for agent runs, 30+ model pricing, and a 3D companion cat that evolves from your coding patterns.",
+    stats: ["30+ models", "4 AI tools", "MIT license", "3D companion"],
+    github: "https://github.com/merak3i/meow-ops",
+    demo: "https://meow-ops.vercel.app",
+    status: "live",
+  },
+] as const;
+
 export interface SubstackPost {
   title: string;
   link: string;

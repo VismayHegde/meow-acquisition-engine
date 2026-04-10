@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import ClientMarquee from "@/components/ClientMarquee";
 import Offers from "@/components/Offers";
+import Lab from "@/components/Lab";
 import Authority from "@/components/Authority";
 import SubstackFeed from "@/components/SubstackFeed";
 
@@ -10,6 +11,7 @@ export default function Home() {
       <Hero />
       <ClientMarquee />
       <Offers />
+      <Lab />
       <Authority />
       <SubstackFeed />
     </>

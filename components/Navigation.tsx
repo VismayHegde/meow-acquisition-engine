@@ -1,18 +1,25 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteConfig } from "@/lib/data";
 
-const navLinks = [
-  { label: "Systems", href: "#offers" },
-  { label: "About", href: "#authority" },
-  { label: "Playbook", href: "#substack" },
-  { label: "Contact", href: `mailto:${siteConfig.email}` },
-];
+function useNavLinks() {
+  const pathname = usePathname();
+  const prefix   = pathname === "/" ? "" : "/";
+  return [
+    { label: "Systems",  href: `${prefix}#offers`    },
+    { label: "About",    href: `${prefix}#authority` },
+    { label: "Lab",      href: "/lab"                },
+    { label: "Playbook", href: `${prefix}#substack`  },
+    { label: "Contact",  href: `mailto:${siteConfig.email}` },
+  ];
+}
 
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navLinks = useNavLinks();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 mix-blend-difference">
