@@ -109,7 +109,7 @@ export const openSourceProjects = [
       "Local-first token analytics dashboard for Claude Code, Cursor, Aider and Codex. Wall-clock Gantt chart for agent runs, 30+ model pricing, and a 3D companion cat that evolves from your coding patterns.",
     stats: ["30+ models", "4 AI tools", "MIT license", "3D companion"],
     github: "https://github.com/merak3i/meow-ops",
-    demo: "https://meow-ops.vercel.app",
+    demo: process.env.NEXT_PUBLIC_DEMO_URL ?? "",
     status: "live",
   },
 ] as const;
