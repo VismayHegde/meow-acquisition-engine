@@ -372,8 +372,8 @@ export const clientWebsites = [
   {
     name: "Suha Rehma",
     tagline: "Psychology practice — digital presence",
-    url: "https://suha-rehma-psychology-git-main-vismayhegdes-projects.vercel.app/",
-    screenshot: "https://image.thum.io/get/width/1200/crop/800/https://suha-rehma-psychology-git-main-vismayhegdes-projects.vercel.app/",
+    url: "https://suharehma.vercel.app/",
+    screenshot: "/screenshots/suha-rehma.png",
     industry: "Psychology",
     logo: "",
   },
