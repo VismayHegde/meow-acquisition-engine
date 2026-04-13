@@ -9,6 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.1] - 2026-04-14
+
+### Changed
+- `components/LabPage.tsx` — `VideoShowcase` promoted to first section slot (replaces `AIModelsShowcase`)
+- `components/LabPage.tsx` — `ClientWebsites` follows `VideoShowcase`
+
+### Removed
+- `AIModelsShowcase` — removed from `/lab` page (placeholder-only, superseded by `VideoShowcase`)
+- `ArticleShowcase` — removed from `/lab` page
+
 ## [1.2.0] - 2026-04-14
 
 ### Added

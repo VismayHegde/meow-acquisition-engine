@@ -3,8 +3,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { openSourceProjects } from "@/lib/data";
-import AIModelsShowcase from "@/components/AIModelsShowcase";
-import ArticleShowcase from "@/components/ArticleShowcase";
 import ClientWebsites from "@/components/ClientWebsites";
 import VideoShowcase from "@/components/VideoShowcase";
 
@@ -158,17 +156,11 @@ export default function LabPage() {
         </p>
       </div>
 
-      {/* AI Models Showcase — full width, outside the narrow max-w-[1000px] container */}
-      <AIModelsShowcase />
-
-      {/* Article Showcase */}
-      <ArticleShowcase />
+      {/* Video Showcase Carousel */}
+      <VideoShowcase />
 
       {/* Client Websites Carousel */}
       <ClientWebsites />
-
-      {/* Video Showcase Carousel */}
-      <VideoShowcase />
     </main>
   );
 }
