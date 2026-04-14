@@ -51,6 +51,13 @@ const CATEGORIES = [
     descriptor:  "Authority, serialized and distributed.",
     body:        "AI-assisted branded podcast series engineered to position your company as the definitive voice in its category. Built for retention, optimised for every major distribution platform.",
   },
+  {
+    key:         "Audiocast",
+    eyebrow:     "Audiocast",
+    label:       "Audiocast",
+    descriptor:  "Long-form audio. Expert positioning.",
+    body:        "Branded audiocast series that go deep — interview-driven, research-backed, and distributed to the audiences that actually make buying decisions.",
+  },
 ] as const;
 
 type CategoryKey = (typeof CATEGORIES)[number]["key"];

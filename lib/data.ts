@@ -397,7 +397,7 @@ export type ClientVideo = {
   videoId: string;
   title: string;
   description: string;
-  /** "Video Marketing" | "AI Model" | "AI Podcast" */
+  /** "Video Marketing" | "AI Model" | "AI Podcast" | "Audiocast" */
   tag: string;
 };
 
@@ -457,6 +457,34 @@ export const clientVideos: ClientVideo[] = [
     title: "Meow World Order",
     description: "AI podcast by Meow Creative Haus.",
     tag: "AI Podcast",
+  },
+  {
+    client: "Asset Mantle",
+    videoId: "mn9gpSiOVbU",
+    title: "Asset Mantle",
+    description: "Video marketing campaign for AssetMantle's Web3 platform.",
+    tag: "Video Marketing",
+  },
+  {
+    client: "Resonance Security",
+    videoId: "0pwHJjd1yhY",
+    title: "Resonance Security",
+    description: "Cybersecurity audiocast — threat intelligence and industry insights.",
+    tag: "Audiocast",
+  },
+  {
+    client: "Stroi Analytics",
+    videoId: "JXyjIlcXXdU",
+    title: "Stroi Analytics",
+    description: "Video marketing campaign for industrial AI analytics.",
+    tag: "Video Marketing",
+  },
+  {
+    client: "Mantle Works",
+    videoId: "xgtbMVUxggg",
+    title: "Mantle Works",
+    description: "Video marketing campaign for Web3 and RWA brand.",
+    tag: "Video Marketing",
   },
 ];
 
