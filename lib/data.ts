@@ -70,6 +70,7 @@ export const clientLogos = [
   {
     name: "BergLabs.ai",
     src: "/berg-logo.svg",
+    noInvert: true,
   },
 ] as const;
 

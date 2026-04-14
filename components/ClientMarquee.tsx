@@ -24,6 +24,7 @@ function LogoStrip() {
       {clientLogos.map((logo, i) => {
         const scale = ("scale" in logo ? logo.scale : 1) as number;
         const hasBg = "hasBg" in logo && logo.hasBg;
+        const noInvert = "noInvert" in logo && logo.noInvert;
 
         return (
           <div
@@ -37,7 +38,7 @@ function LogoStrip() {
               alt={logo.name}
               width={140}
               height={48}
-              className="w-auto max-w-[140px] object-contain invert grayscale opacity-40 group-hover:opacity-100 group-hover:drop-shadow-[0_0_12px_rgba(73,197,182,0.7)] transition-all duration-500"
+              className={`w-auto max-w-[140px] object-contain grayscale opacity-40 group-hover:opacity-100 group-hover:drop-shadow-[0_0_12px_rgba(73,197,182,0.7)] transition-all duration-500${noInvert ? "" : " invert"}`}
               style={{
                 height: `${(scale ?? 1) * 2.5}rem`,
               }}
