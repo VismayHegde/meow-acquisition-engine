@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { openSourceProjects } from "@/lib/data";
 import ClientWebsites from "@/components/ClientWebsites";
 import VideoShowcase from "@/components/VideoShowcase";
+import ShortsShowcase from "@/components/ShortsShowcase";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -156,8 +157,11 @@ export default function LabPage() {
         </p>
       </div>
 
-      {/* Video Showcase Carousel */}
+      {/* Video Showcase Carousel — landscape, long-form */}
       <VideoShowcase />
+
+      {/* Shorts Showcase — portrait, vertical short-form */}
+      <ShortsShowcase />
 
       {/* Client Websites Carousel */}
       <ClientWebsites />

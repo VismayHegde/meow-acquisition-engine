@@ -460,6 +460,51 @@ export const clientVideos: ClientVideo[] = [
   },
 ];
 
+// ─── Client Shorts (YouTube Shorts — portrait) ───────────────────────────────
+
+export type ShortsGroup = {
+  client: string;
+  /** "Video Marketing" | "AI Model" */
+  tag: string;
+  shorts: { videoId: string; description: string }[];
+};
+
+export const clientShorts: ShortsGroup[] = [
+  {
+    client: "Ingrained Logic",
+    tag: "Video Marketing",
+    shorts: [
+      { videoId: "6mIj1Kv0tIE", description: "Brand identity campaign." },
+      { videoId: "gyBWLQZ_E6Q", description: "Short-form brand content." },
+      { videoId: "uSzsEemJJ94", description: "Short-form brand content." },
+    ],
+  },
+  {
+    client: "Manipal Aerosports",
+    tag: "Video Marketing",
+    shorts: [
+      { videoId: "45SbbqoqEsU", description: "Aviation brand short." },
+    ],
+  },
+  {
+    client: "Resonance Security",
+    tag: "Video Marketing",
+    shorts: [
+      { videoId: "STubABAZO2g", description: "Cybersecurity awareness content." },
+      { videoId: "e5Kh8wJEUEw", description: "Cybersecurity awareness content." },
+      { videoId: "XeHMo4a5g6w", description: "Cybersecurity awareness content." },
+    ],
+  },
+  {
+    client: "Asset Mantle",
+    tag: "AI Model",
+    shorts: [
+      { videoId: "DVBG4RRkOsE", description: "AI model short for Web3 platform." },
+      { videoId: "e5Kh8wJEUEw", description: "AI model short for Web3 platform." },
+    ],
+  },
+];
+
 export interface SubstackPost {
   title: string;
   link: string;
