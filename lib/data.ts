@@ -159,11 +159,25 @@ const LOGOS = {
   activePower:       "https://meowcreativehaus.lovable.app/lovable-uploads/69925ab5-3c33-482a-9561-5eb05acbc182.png",
   mantleWorks:       "https://meowcreativehaus.lovable.app/lovable-uploads/1af13004-dd8f-444c-a10b-c5a2573ab542.png",
   manipalAerosports: "https://meowcreativehaus.lovable.app/lovable-uploads/2ab5b161-6bee-476d-87ba-767c24bb9168.png",
+  merak3i:           "https://substackcdn.com/image/fetch/$s_!AOTz!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2d55abfa-bb35-4bc5-b16c-a69fc36c83e2_1320x1318.png",
 };
 
 // ─── Featured Articles ────────────────────────────────────────────────────────
 
 export const featuredArticles = [
+  // ── Merak3i (Personal Substack) ───────────────────────────────────────────
+  {
+    id: "merak3i-1",
+    title: "The Cost of Compute, the Compute of Cost",
+    excerpt: "A field report from the last summer of free compute. Four labs — Gemini, ChatGPT, Claude, Grok — and one orbital problem. They want you hooked before the rate card lands.",
+    client: "Merak3i",
+    clientLogo: LOGOS.merak3i,
+    niche: "ai-compute",
+    nicheLabel: "AI · Compute",
+    platform: "blog" as const,
+    href: "https://merak3i.substack.com/p/the-cost-of-compute-the-compute-of",
+    coverImage: "https://substackcdn.com/image/fetch/$s_!kJ8t!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe6b6aaa4-a273-4cd6-a018-b515acc52342_2920x1800.png",
+  },
   // ── Resonance Security ────────────────────────────────────────────────────
   {
     id: "rs-1",
@@ -546,6 +560,15 @@ export interface SubstackPost {
   excerpt: string;
 }
 
+const CURATED_EXTRA_POSTS: SubstackPost[] = [
+  {
+    title: "The Cost of Compute, the Compute of Cost",
+    link: "https://merak3i.substack.com/p/the-cost-of-compute-the-compute-of",
+    pubDate: "Sun, 26 Apr 2026 14:10:53 GMT",
+    excerpt: "A field report from the last summer of free compute. Four labs — Google Gemini, OpenAI ChatGPT, Anthropic Claude, xAI Grok — and one orbital problem. They want you hooked before the rate card lands.",
+  },
+];
+
 export async function fetchSubstackFeed(): Promise<SubstackPost[]> {
   try {
     const res = await fetch(
@@ -558,11 +581,9 @@ export async function fetchSubstackFeed(): Promise<SubstackPost[]> {
     const parsed = parser.parse(xml);
 
     const items = parsed?.rss?.channel?.item;
-    if (!items) return [];
+    const itemArray = items ? (Array.isArray(items) ? items : [items]) : [];
 
-    const itemArray = Array.isArray(items) ? items : [items];
-
-    return itemArray.map((item: Record<string, string>) => {
+    const dynamicPosts: SubstackPost[] = itemArray.map((item: Record<string, string>) => {
       const rawDesc = item["description"] || item["content:encoded"] || "";
       const stripped = rawDesc.replace(/<[^>]*>/g, "").trim();
       const excerpt =
@@ -575,7 +596,11 @@ export async function fetchSubstackFeed(): Promise<SubstackPost[]> {
         excerpt,
       };
     });
+
+    return [...dynamicPosts, ...CURATED_EXTRA_POSTS].sort(
+      (a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()
+    );
   } catch {
-    return [];
+    return [...CURATED_EXTRA_POSTS];
   }
 }

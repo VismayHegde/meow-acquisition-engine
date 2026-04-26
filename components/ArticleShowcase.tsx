@@ -21,6 +21,7 @@ const fadeUp = {
 
 const NICHES = [
   { key: "all",          label: "All"              },
+  { key: "ai-compute",   label: "AI · Compute"     },
   { key: "security",     label: "Cybersecurity"    },
   { key: "blockchain",   label: "Blockchain · RWA" },
   { key: "industrial-ai",label: "Industrial AI"    },
