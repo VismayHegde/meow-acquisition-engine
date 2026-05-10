@@ -5,6 +5,7 @@ import { motion, AnimatePresence, PanInfo } from "framer-motion";
 import { ChevronLeft, ChevronRight, ArrowUpRight, X } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { getWheelDirection, shouldThrottleWheel } from "@/lib/focus-rail-logic";
 
 // ─── Types ─────────────────────────────────────────────────────────────────
 
@@ -97,13 +98,11 @@ export function FocusRail({
   const onWheel = React.useCallback(
     (e: React.WheelEvent) => {
       const now = Date.now();
-      if (now - lastWheelTime.current < 400) return;
-      const isHorizontal = Math.abs(e.deltaX) > Math.abs(e.deltaY);
-      const delta = isHorizontal ? e.deltaX : e.deltaY;
-      if (Math.abs(delta) > 20) {
-        delta > 0 ? handleNext() : handlePrev();
-        lastWheelTime.current = now;
-      }
+      if (shouldThrottleWheel(now, lastWheelTime.current, 400)) return;
+      const direction = getWheelDirection(e.deltaX, e.deltaY, 20);
+      if (!direction) return;
+      direction === "next" ? handleNext() : handlePrev();
+      lastWheelTime.current = now;
     },
     [handleNext, handlePrev],
   );

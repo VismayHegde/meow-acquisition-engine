@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Single Item Feed</title>
+    <item>
+      <title>Only Post</title>
+      <link>https://example.com/only-post</link>
+      <pubDate>Sun, 11 May 2026 10:00:00 GMT</pubDate>
+      <description><![CDATA[<p>Single item payload.</p>]]></description>
+    </item>
+  </channel>
+</rss>

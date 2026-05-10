@@ -568,6 +568,8 @@ export const clientShorts: ShortsGroup[] = [
   },
 ];
 
+import { mergeAndSortSubstackPosts, parseSubstackXml } from "./substack-parser";
+
 export interface SubstackPost {
   title: string;
   link: string;
@@ -591,30 +593,8 @@ export async function fetchSubstackFeed(): Promise<SubstackPost[]> {
       { next: { revalidate: 3600 } }
     );
     const xml = await res.text();
-    const { XMLParser } = await import("fast-xml-parser");
-    const parser = new XMLParser({ ignoreAttributes: false });
-    const parsed = parser.parse(xml);
-
-    const items = parsed?.rss?.channel?.item;
-    const itemArray = items ? (Array.isArray(items) ? items : [items]) : [];
-
-    const dynamicPosts: SubstackPost[] = itemArray.map((item: Record<string, string>) => {
-      const rawDesc = item["description"] || item["content:encoded"] || "";
-      const stripped = rawDesc.replace(/<[^>]*>/g, "").trim();
-      const excerpt =
-        stripped.length > 200 ? stripped.slice(0, 200) + "..." : stripped;
-
-      return {
-        title: item.title || "Untitled",
-        link: item.link || "#",
-        pubDate: item.pubDate || "",
-        excerpt,
-      };
-    });
-
-    return [...dynamicPosts, ...CURATED_EXTRA_POSTS].sort(
-      (a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()
-    );
+    const dynamicPosts = parseSubstackXml(xml);
+    return mergeAndSortSubstackPosts(dynamicPosts, CURATED_EXTRA_POSTS);
   } catch {
     return [...CURATED_EXTRA_POSTS];
   }

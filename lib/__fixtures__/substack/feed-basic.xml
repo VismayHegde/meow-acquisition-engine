@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Sample Feed</title>
+    <item>
+      <title>Launch Notes</title>
+      <link>https://example.com/launch-notes</link>
+      <pubDate>Mon, 12 May 2026 10:00:00 GMT</pubDate>
+      <description><![CDATA[<p>Short update for launch.</p>]]></description>
+    </item>
+    <item>
+      <title>Deep Dive</title>
+      <link>https://example.com/deep-dive</link>
+      <pubDate>Tue, 13 May 2026 10:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[<div><strong>Long form</strong> content block.</div>]]></content:encoded>
+    </item>
+  </channel>
+</rss>

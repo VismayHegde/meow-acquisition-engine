@@ -1,0 +1,7 @@
+[
+  { "deltaX": 10, "deltaY": 5, "expected": null },
+  { "deltaX": 25, "deltaY": 5, "expected": "next" },
+  { "deltaX": -22, "deltaY": -3, "expected": "prev" },
+  { "deltaX": 0, "deltaY": 30, "expected": "next" },
+  { "deltaX": 3, "deltaY": -28, "expected": "prev" }
+]
