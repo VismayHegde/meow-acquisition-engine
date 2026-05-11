@@ -421,6 +421,14 @@ export const clientWebsites = [
     industry: "Legal",
     logo: "",
   },
+  {
+    name: "EAASH",
+    tagline: "Brand website with a clean modern presence",
+    url: "https://eaash.vercel.app/",
+    screenshot: "https://image.thum.io/get/width/1200/crop/800/https://eaash.vercel.app/",
+    industry: "Brand",
+    logo: "",
+  },
 ] as const;
 
 export type ClientWebsite = (typeof clientWebsites)[number];

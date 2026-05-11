@@ -26,7 +26,6 @@ function LogoStrip() {
     <>
       {clientLogos.map((logo, i) => {
         const scale    = ("scale"    in logo ? logo.scale    : 1)     as number;
-        const hasBg    = "hasBg"    in logo && logo.hasBg;
         const noInvert = "noInvert" in logo && logo.noInvert;
         const isText   = "isText"   in logo && logo.isText;
         const preserveColor = "preserveColor" in logo && logo.preserveColor;
@@ -34,14 +33,14 @@ function LogoStrip() {
         return (
           <div
             key={`${logo.name}-${i}`}
-            className={`flex-shrink-0 mx-8 md:mx-12 group flex items-center justify-center h-16 ${
-              hasBg ? "bg-white/10 rounded-md px-4 py-2" : ""
-            }`}
+            className="group relative mx-5 flex h-24 w-[11rem] flex-shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-white/8 bg-white/[0.03] px-5 py-4 transition-all duration-500 hover:border-[#49c5b6]/35 hover:bg-white/[0.08] hover:shadow-[0_0_28px_rgba(73,197,182,0.14)] active:border-[#49c5b6]/35 active:bg-white/[0.08] active:shadow-[0_0_28px_rgba(73,197,182,0.14)] md:mx-7 md:w-[12rem]"
           >
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(73,197,182,0.18),_transparent_58%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-active:opacity-100" />
+
             {isText ? (
               /* ── Text wordmark (e.g. CanterClub) ── */
               <span
-                className="font-semibold tracking-tight text-white opacity-40 group-hover:opacity-100 group-hover:drop-shadow-[0_0_12px_rgba(73,197,182,0.7)] transition-all duration-500 whitespace-nowrap select-none"
+                className="relative z-10 select-none whitespace-nowrap font-semibold tracking-tight text-white/45 transition-all duration-500 group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(73,197,182,0.45)] group-active:text-white group-active:drop-shadow-[0_0_12px_rgba(73,197,182,0.45)]"
                 style={{ fontSize: "2rem", letterSpacing: "-0.04em" }}
               >
                 {logo.name}
@@ -53,8 +52,10 @@ function LogoStrip() {
                 alt={logo.name}
                 width={160}
                 height={64}
-                className={`w-auto max-w-[160px] object-contain group-hover:opacity-100 group-hover:drop-shadow-[0_0_12px_rgba(73,197,182,0.7)] transition-all duration-500 ${
-                  preserveColor ? "opacity-70" : `grayscale opacity-40${noInvert ? "" : " invert"}`
+                className={`relative z-10 h-auto w-auto max-w-[150px] object-contain transition-all duration-500 group-hover:scale-[1.03] group-hover:opacity-100 group-hover:drop-shadow-[0_0_12px_rgba(73,197,182,0.45)] group-active:scale-[1.03] group-active:opacity-100 group-active:drop-shadow-[0_0_12px_rgba(73,197,182,0.45)] ${
+                  preserveColor
+                    ? "opacity-55 saturate-0 brightness-110 group-hover:saturate-100 group-active:saturate-100"
+                    : `grayscale brightness-125 opacity-45 group-hover:grayscale-0 group-active:grayscale-0${noInvert ? "" : " invert group-hover:invert-0 group-active:invert-0"}`
                 }`}
                 style={{ height: `${scale * BASE_REM}rem` }}
                 unoptimized
