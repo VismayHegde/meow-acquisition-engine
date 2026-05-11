@@ -401,7 +401,7 @@ export const clientWebsites = [
     name: "Coastal Edge AI",
     tagline: "Predictive social media marketing",
     url: "https://coastaledge.vercel.app/",
-    screenshot: "https://image.thum.io/get/width/1200/crop/800/https://coastaledge.vercel.app/",
+    screenshot: "/screenshots/coastal-edge-ai.png",
     industry: "AI Marketing",
     logo: LOGOS.coastalEdge,
   },
@@ -423,10 +423,10 @@ export const clientWebsites = [
   },
   {
     name: "EAASH",
-    tagline: "Brand website with a clean modern presence",
+    tagline: "Boutique coastal stay brand",
     url: "https://eaash.vercel.app/",
-    screenshot: "https://image.thum.io/get/width/1200/crop/800/https://eaash.vercel.app/",
-    industry: "Brand",
+    screenshot: "/screenshots/eaash.png",
+    industry: "Hospitality",
     logo: "",
   },
 ] as const;
