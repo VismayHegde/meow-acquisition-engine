@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
 import Navigation from "@/components/Navigation";
@@ -24,6 +25,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-surface text-text">
+        <Script
+          src="https://www.patherle.com/patherle-pixel.js"
+          data-tenant-id="9318a323-8e3f-4d5b-b664-050564c8bf42"
+          strategy="afterInteractive"
+        />
         <LenisProvider>
           <div className="grain-overlay" />
           <Navigation />
